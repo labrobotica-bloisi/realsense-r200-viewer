@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>realsense_r200_viewer</name>
-  <version>beta</version>
+  <version>0.0.1</version>
   <description>realsense_r200_viewer package</description>
   <maintainer email="domenico.bloisi@gmail.com">Domenico Bloisi</maintainer>
   <license>LGPLv3</license>
