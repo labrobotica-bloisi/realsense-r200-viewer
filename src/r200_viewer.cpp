@@ -42,7 +42,7 @@ void depth_callback(const sensor_msgs::ImageConstPtr& msg){
     cv::convertScaleAbs(depthMat, adjMat, 255 / dmax);
 
     cv::Mat colorMat;
-    cv::applyColorMap(adjMat, colorMat, cv::COLORMAP_HOT);
+    cv::applyColorMap(adjMat, colorMat, cv::COLORMAP_JET);
     cv::imshow("Depth", colorMat);
 
     cv::waitKey(30);
