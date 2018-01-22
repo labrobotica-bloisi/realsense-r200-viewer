@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+find_package(OpenCV)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 catkin_package()
 
 include_directories(
@@ -25,5 +28,6 @@ add_executable(realsense_r200_viewer ${SRCS})
 
 target_link_libraries(realsense_r200_viewer
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
 )
 
