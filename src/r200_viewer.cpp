@@ -28,41 +28,53 @@ cv::Mat getColorDepth(const cv::Mat& depthImage) {
     for(int x = 0; x < depthImage.cols; x++) {      
       float d = depthImage.at<float>(y, x);
       if(d != 0 && d < 4000.0f) {
-	if(d < 500.f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(250, 0, 0);
+	if(d < 0.8f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 0, 191);
         }
-        else if(d < 750.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(200, 50, 50);
+	else if(d < 0.9f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 0, 255);
         }
-        else if(d < 1000.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(150, 100, 100);
+        else if(d < 1.0f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 63, 255);
         }
-        else if(d < 1250.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(100, 150, 150);
+        else if(d < 1.2f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 127, 255);
         }
-        else if(d < 1500.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(50, 200, 200);
+        else if(d < 1.4f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 191, 255);
         }
-        else if(d < 1750.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 250, 250);
+        else if(d < 1.6f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(0, 255, 255);
         }
-        else if(d < 2000.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(250, 0, 250);
+        else if(d < 1.8f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(63, 255, 191);
         }
-        else if(d < 2250.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(250, 50, 200);
+        else if(d < 2.0f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(127, 255, 127);
         }
-        else if(d < 2500.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(200, 100, 150);
+        else if(d < 2.2f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(191, 255, 63);
         }
-        else if(d < 2750.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(150, 150, 100);
+        else if(d < 2.4f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(255, 255, 0);
         }
-        else if(d < 3000.0f) {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(100, 100, 50);
+        else if(d < 2.6f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(255, 191, 0);
+        }
+        else if(d < 2.8f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(255, 127, 0);
+        }
+        else if(d < 3.0f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(255, 63, 0);
+        }
+        else if(d < 3.2f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(255, 0, 0);
+        }
+        else if(d < 3.4f) {
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(191, 0, 0);
         }
         else {
-          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(50, 50, 0);
+          colorMat.at<cv::Vec3b>(y,x) = cv::Vec3b(143, 0, 0);
         }
       }
     }
@@ -104,7 +116,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "realsense_r200_viewer");
 
     string topic_rgb = "camera/rgb/image_rect_color";
-    string topic_depth = "camera/depth_registered/sw_registered/image_rect_raw";
+    string topic_depth = "camera/depth_registered/sw_registered/image_rect";
 	
     cout << "Subscriptions:" << endl;
     cout << "  - RGB topic: " << topic_rgb << endl;
