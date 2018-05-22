@@ -93,6 +93,8 @@ void callback(const ImageConstPtr& depthImage_, const ImageConstPtr& rgbImage_)
         return;
     }
 
+    cv::imshow("RGB", rgbImage->image);
+
     cv_bridge::CvImageConstPtr depthImage;
     try {
         depthImage = cv_bridge::toCvShare(depthImage_, sensor_msgs::image_encodings::TYPE_32FC1);
